@@ -1,0 +1,1 @@
+Product Name: Hoodie|Price: 5000.0|Quantity: 10|Discount: 0.0%|Description: a unisex hoodie best for winter|Image: Image Selected: C:\Users\Computer Point\Desktop\SEMESTER 2\OOP\11 Project\pics\ProductsImages\Clothing\hoodie.jpg
