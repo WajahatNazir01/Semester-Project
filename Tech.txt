@@ -1,0 +1,2 @@
+Product Name: Mobile|Price: 300000.0|Quantity: 5|Discount: 0.0%|Description: it is an iphone|Image: Image Selected: C:\Users\Computer Point\Desktop\SEMESTER 2\OOP\11 Project\pics\ProductsImages\Technology\phone.jpg
+Product Name: Head Phone|Price: 5000.0|Quantity: 10|Discount: 10.0%|Description: wireless headphone with good ear cushioningand noise cancellation|Image: Image Selected: C:\Users\Computer Point\Desktop\SEMESTER 2\OOP\11 Project\pics\ProductsImages\Technology\headphone.jpg
