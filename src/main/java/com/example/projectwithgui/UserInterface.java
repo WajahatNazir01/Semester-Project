@@ -189,7 +189,7 @@ public class UserInterface {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("🛒 Cart Update");
         alert.setHeaderText("Success! Item Added to Cart 🎉");
-        alert.setContentText("The product \"" + product.getName() + "\" has been successfully added to your cart.\n\n" +
+        alert.setContentText("The product " + product.getName() + " has been successfully added to your cart.\n\n" +
                 "Cart Total: " + cart.getProducts().size() + " items.");
 
 
@@ -309,7 +309,7 @@ public class UserInterface {
         mainLayout.setTop(cartItemsLayout);
         mainLayout.setBottom(orderSummaryLayout);
 
-        Scene cartScene = new Scene(mainLayout, 800, 600);
+        Scene cartScene = new Scene(mainLayout, 800, 500);
         cartStage.setScene(cartScene);
         cartStage.show();
     }

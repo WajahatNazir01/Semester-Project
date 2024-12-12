@@ -63,3 +63,29 @@ Shipping: Rs_500
 Grand Total: Rs_7500.0
 
 
+----- Order Details -----
+Customer Name: Sami Ur Rehman
+Email: samirajput503@gmail.com
+Phone: 03038822180
+Address: 1065M, M Block LDA
+City: Lahore
+Country: Pakistan
+Payment Method: Cash on Delivery
+Subtotal: Rs_6999.0
+Shipping: Rs_500
+Grand Total: Rs_7499.0
+
+
+----- Order Details -----
+Customer Name:  
+Email: 
+Phone: 
+Address: 
+City: 
+Country: UK
+Payment Method: Cash on Delivery
+Subtotal: Rs_300000.0
+Shipping: Rs_500
+Grand Total: Rs_300500.0
+
+

@@ -22,6 +22,8 @@ public class  Main extends Application {
     //This is my main class that further leads us to respective stages
     @Override
     public void start(Stage primaryStage) {
+        Image icon = new Image("Icon.png");  // Path to the icon
+        primaryStage.getIcons().add(icon);
         //background image set
         Image backgroundImage = new Image("orangebg.png");
         ImageView backgroundView = new ImageView(backgroundImage);
