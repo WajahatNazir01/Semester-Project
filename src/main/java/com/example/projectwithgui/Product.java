@@ -51,7 +51,38 @@ public class Product {
         return category;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return name; // 'name' is the product name variable in your Product class
+    }
+
 }
+

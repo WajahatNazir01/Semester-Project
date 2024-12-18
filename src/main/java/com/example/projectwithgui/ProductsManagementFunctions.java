@@ -18,11 +18,12 @@ public class ProductsManagementFunctions {
 
     public void show(Stage stage) {
         GridPane gridPane = new GridPane();
+      //  gridPane.setStyle("-fx-background-color: #ffdc97;");
         gridPane.setHgap(20);
         gridPane.setVgap(20);
         gridPane.setPadding(new Insets(20));
         gridPane.setAlignment(Pos.CENTER);
-        //to select category you want the new product to be under stored
+        //to select category you want the new product to be under
         ComboBox<String> categoryComboBox = new ComboBox<>();
         List<String> categories = CategoryManager.getCategories();
         if (categories.isEmpty()) {
@@ -51,15 +52,15 @@ public class ProductsManagementFunctions {
         Label descriptionLabel = new Label("Description:");
         TextArea descriptionField = new TextArea();
         descriptionField.setPromptText("Enter Product Description");
-        descriptionField.setWrapText(true);
+        descriptionField.setWrapText(true);  //for larger texts
 
-        // File chooser for product image it chooses file from the system
+        // File chooser for product image
         Button chooseImageButton = new Button("Choose Product Image");
         styleButton(chooseImageButton);
         Label selectedImageLabel = new Label("No file selected");
         ImageView productImageView = new ImageView();
         //it is used to store absolute path of image
-        String[] absolutePath = new String[1];
+        String[] absolutePath = new String[1]; // Use an array to modify it inside the lambda
 
         chooseImageButton.setOnAction(e -> {
             FileChooser fileChooser = new FileChooser();
@@ -80,6 +81,7 @@ public class ProductsManagementFunctions {
                     Image productImage = new Image(new FileInputStream(selectedFile), 250, 250, true, true);
                     productImageView.setImage(productImage);
 
+                    // Display the absolute path of the selected image in the label
                     selectedImageLabel.setText("Image Selected: " + absolutePath[0]);
                 } catch (FileNotFoundException ex) {
                     showAlert(Alert.AlertType.ERROR, "Error", "Failed to load image.");
@@ -93,7 +95,8 @@ public class ProductsManagementFunctions {
         styleButton(addProductButton);
         Button goBackButton = new Button("Go Back");
         styleButton(goBackButton);
-        //metod to save all prodcut details in file
+
+
         addProductButton.setOnAction(e -> {
             saveProductDetails(
                     categoryComboBox,
@@ -113,6 +116,7 @@ public class ProductsManagementFunctions {
             productsManagement.show(stage);
         });
 
+        // Add components to layout
         gridPane.add(new Label("Category:"), 0, 0);
         gridPane.add(categoryComboBox, 1, 0);
 

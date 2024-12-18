@@ -19,7 +19,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class AdminLogin {
-    private final String ADMIN_USERNAME = "Wajahat";
+    private final String ADMIN_USERNAME = "Ahmed";
     private final String ADMIN_PASSWORD = "1234";
     private final Stage stage;
     private volatile boolean showError = true;
@@ -29,11 +29,10 @@ public class AdminLogin {
     }
 
     public void show() {
-        //setting the complete interface
         Image backgroundImage = new Image("orangebg.png");
         ImageView backgroundView = new ImageView(backgroundImage);
         backgroundView.setFitWidth(1550);
-        backgroundView.setFitHeight(720);
+        backgroundView.setFitHeight(670);
         backgroundView.setPreserveRatio(false);
 
         Label usernameLabel = new Label("Username:");
@@ -60,7 +59,7 @@ public class AdminLogin {
 
         Label statusLabel = new Label();
         statusLabel.setFont(new Font("Didot", 14));
-        statusLabel.setTextFill(Color.BLACK);
+        statusLabel.setTextFill(Color.RED);
         statusLabel.setVisible(false);
 
         Button loginButton = new Button("Login");
@@ -100,11 +99,9 @@ public class AdminLogin {
         StackPane root = new StackPane();
         root.getChildren().addAll(backgroundView, formLayout);
 
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root, 1550, 670);
         stage.setFullScreen(true);
         stage.setScene(scene);
-        stage.setFullScreenExitHint("");
-        stage.setFullScreenExitKeyCombination(null);
         stage.setTitle("Admin Login");
     }
 
@@ -130,7 +127,7 @@ public class AdminLogin {
                 + "-fx-padding: 10 20; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #8c5d15; -fx-border-width: 2;"));
     }
 
-    //method that calls a thread that blinks the notifcation
+
     private void showBlinkingNotification(Label statusLabel, String message) {
         showError = true;
         statusLabel.setText(message);

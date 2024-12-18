@@ -25,14 +25,13 @@ public class CustomersDatabase {
         root.setPadding(new Insets(20));
 
         HBox topMenuBar = new HBox(10);
-        topMenuBar.setStyle("-fx-background-color: #ffc784; -fx-border-color: #b5b2b2; -fx-border-width: 1;");
+        topMenuBar.setStyle("-fx-background-color: #e6e1e1; -fx-border-color: #b5b2b2; -fx-border-width: 1;");
 
         Button cancelButton = new Button("Cancel");
         cancelButton.setOnAction(e -> {
             ShowAdminMenu adminMenu = new ShowAdminMenu();
             adminMenu.show(stage); // Navigate back to the Admin Menu
         });
-        cancelButton.setStyle("-fx-background-color: #d88f1e;");
         topMenuBar.getChildren().add(cancelButton);
 
         // Create the root layout (VBox or whatever layout you are using)
@@ -42,7 +41,7 @@ public class CustomersDatabase {
         root.getChildren().add(topMenuBar);
 
         Label titleLabel = new Label("Customers Database");
-        titleLabel.setStyle("-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #88570b; -fx-padding: 10px 0;");
+        titleLabel.setStyle("-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #14309f; -fx-padding: 10px 0;");
 
         // Create the table and its columns
         table = new TableView<>();
@@ -68,6 +67,7 @@ public class CustomersDatabase {
         usernameColumn.setStyle("-fx-font-weight: bold; -fx-background-color: #f0f0f0;");
         passwordColumn.setStyle("-fx-font-weight: bold; -fx-background-color: #f0f0f0;");
 
+        // Set table header styling
         table.getColumns().forEach(column -> {
             column.setStyle("-fx-font-size: 16px; -fx-font-weight: bold; -fx-background-color: #c4c4c4; -fx-text-fill: #333;");
         });
@@ -75,10 +75,10 @@ public class CustomersDatabase {
         // Set row styling
         table.setRowFactory(tv -> {
             TableRow<Customers> row = new TableRow<>();
-            row.setStyle("-fx-background-color: #d88f1e;");
+            row.setStyle("-fx-background-color: #ffffff;");
             row.hoverProperty().addListener((obs, wasHovered, isNowHovered) -> {
                 if (isNowHovered) {
-                    row.setStyle("-fx-background-color:#d88f1e;");
+                    row.setStyle("-fx-background-color: #e0e0e0;");
                 } else {
                     row.setStyle("-fx-background-color: #ffffff;");
                 }
@@ -97,8 +97,6 @@ public class CustomersDatabase {
         scene.setFill(Color.WHITE); // Set scene background color
         stage.setTitle("Customers Database");
         stage.setScene(scene);
-        stage.setFullScreenExitHint("");
-        stage.setFullScreenExitKeyCombination(null);
         stage.setFullScreen(true);
         stage.show();
     }

@@ -1,7 +1,7 @@
 module com.example.projectwithgui {
     requires javafx.controls;
     requires javafx.fxml;
-    requires java.mail;
+    requires com.google.gson;
 
 
     opens com.example.projectwithgui to javafx.fxml;

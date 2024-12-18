@@ -48,9 +48,6 @@ public class Categories {
         stage.setScene(scene);
         vBox.setStyle("-fx-background-color: #fdd880");
         stage.setTitle("Categories");
-        stage.setFullScreen(true);
-        stage.setFullScreenExitHint("");
-        stage.setFullScreenExitKeyCombination(null);
         stage.show();
     }
 

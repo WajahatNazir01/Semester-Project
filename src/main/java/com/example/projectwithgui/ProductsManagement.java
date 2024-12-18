@@ -35,8 +35,12 @@ public class ProductsManagement {
         });
 
         removeProductButton.setOnAction(e->{
-            RemoveProducts rp =  new RemoveProducts();
+            RemoveProduct rp =  new RemoveProduct();
             rp.show(stage);
+        });
+        modifyProductButton.setOnAction(e -> {
+            ModifyProduct modifyProduct = new ModifyProduct();
+            modifyProduct.show(stage);
         });
 
         vBox.getChildren().addAll(addProductButton, removeProductButton, modifyProductButton, goback);
@@ -45,8 +49,6 @@ public class ProductsManagement {
         vBox.setStyle("-fx-background-color: #fdd880");
         stage.setTitle("Products Management");
         stage.setFullScreen(true);
-        stage.setFullScreenExitHint("");
-        stage.setFullScreenExitKeyCombination(null);
         stage.show();
     }
 //    private void styleButton(Button button) {

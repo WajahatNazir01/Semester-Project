@@ -1,3 +1,4 @@
 Groceries
 Clothing
-Tech
+TECHnology
+Pets

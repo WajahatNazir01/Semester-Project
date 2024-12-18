@@ -21,7 +21,6 @@ import java.util.List;
 
 public class NewUserRegistration {
     private final Stage stage;
-    //creating a file to store users data
     private static final String FILE_PATH = "users.txt";
 
     public NewUserRegistration(Stage stage) {
@@ -34,36 +33,48 @@ public class NewUserRegistration {
         Image backgroundImage = new Image("orangebg.png");
         ImageView backgroundView = new ImageView(backgroundImage);
         backgroundView.setFitWidth(1550);
-        backgroundView.setFitHeight(720);
-        //interface
+        backgroundView.setFitHeight(670);
+
         Label nameLabel = new Label("Name:");
         TextField nameField = new TextField();
         nameField.setPrefWidth(300);
         styleLabel(nameLabel);
         HBox nameLayout = new HBox(10, nameLabel, nameField);
         nameLayout.setAlignment(Pos.CENTER);
+
         Label usernameLabel = new Label("Username:");
         TextField usernameField = new TextField();
         usernameField.setPrefWidth(300);
         styleLabel(usernameLabel);
         HBox usernameLayout = new HBox(10, usernameLabel, usernameField);
         usernameLayout.setAlignment(Pos.CENTER);
+
         Label passwordLabel = new Label("Password:");
         PasswordField passwordField = new PasswordField();
         passwordField.setPrefWidth(300);
         styleLabel(passwordLabel);
         HBox passwordLayout = new HBox(10, passwordLabel, passwordField);
         passwordLayout.setAlignment(Pos.CENTER);
+
+        Label confirmPasswordLabel = new Label("Password:");
+        PasswordField confirmPasswordField = new PasswordField();
+        passwordField.setPrefWidth(300);
+        styleLabel(passwordLabel);
+        HBox confirmPasswordLayout = new HBox(10, confirmPasswordLabel ,confirmPasswordField);
+        passwordLayout.setAlignment(Pos.CENTER);
+
         Button registerButton = new Button("Register");
         Button cancelButton = new Button("Cancel");
         HBox buttonLayout = new HBox(10, registerButton, cancelButton);
         buttonLayout.setAlignment(Pos.CENTER);
+
         Label statusLabel = new Label();
-        statusLabel.setTextFill(Color.BLACK);
+        statusLabel.setTextFill(Color.RED);
         statusLabel.setVisible(false);
+
         styleButton(registerButton);
         styleButton(cancelButton);
-        //buttons functionalities
+
         registerButton.setOnAction(e -> {
             String username = usernameField.getText();
             String password = passwordField.getText();
@@ -75,30 +86,30 @@ public class NewUserRegistration {
                 addUserToFile(username, password);
                 statusLabel.setText("Registration Successful!");
                 statusLabel.setTextFill(Color.GREEN);
-                UserInterface userInterface = new UserInterface();
-                userInterface.show(stage);
+                UserLoginOptions userLoginOptions = new UserLoginOptions(stage);
+                userLoginOptions.show();
             }
         });
+
         cancelButton.setOnAction(e -> {
             UserLoginOptions userLoginOptions = new UserLoginOptions(stage);
             userLoginOptions.show();
         });
 
-        //makong the layout
+
         VBox formLayout = new VBox(20, nameLayout, usernameLayout, passwordLayout, buttonLayout, statusLabel);
         formLayout.setAlignment(Pos.CENTER);
         formLayout.setPadding(new Insets(200, 0, 0, 0));
+
         StackPane root = new StackPane();
         root.getChildren().addAll(backgroundView, formLayout);
 
         Scene scene = new Scene(root, 1550, 670);
         stage.setScene(scene);
         stage.setFullScreen(true);
-        stage.setFullScreenExitHint("");
-        stage.setFullScreenExitKeyCombination(null);
         stage.setTitle("New User Registration");
     }
-    //method to check if user aalready exists
+
     private boolean userExists(String username) {
         try {
             List<String> lines = Files.readAllLines(Path.of(FILE_PATH));
@@ -107,7 +118,7 @@ public class NewUserRegistration {
             return false;
         }
     }
-    //add new user data to file
+
     private void addUserToFile(String username, String password) {
         try (FileWriter writer = new FileWriter(FILE_PATH, true)) {
             writer.write(username + "," + password + System.lineSeparator());
@@ -115,7 +126,7 @@ public class NewUserRegistration {
             e.printStackTrace();
         }
     }
-
+//    The method addUserToFile uses System.lineSeparator() to add a new line after writing user information (username and password), ensuring that each user entry appears on its own line within the file.
     private void createFileIfNotExists(String filePath) {
         Path path = Path.of(filePath);
         if (!Files.exists(path)) {
@@ -126,14 +137,14 @@ public class NewUserRegistration {
             }
         }
     }
-    //same as show notification
+
     private void showErrorMessage(Label statusLabel, String message) {
         statusLabel.setText(message);
         statusLabel.setVisible(true);
 
         new Thread(() -> {
             try {
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 3; i++) {
                     Thread.sleep(500);
                     statusLabel.setVisible(!statusLabel.isVisible());
                 }
@@ -153,6 +164,7 @@ public class NewUserRegistration {
         button.setOnMouseExited(e -> button.setStyle("-fx-background-color: #d88f1e; -fx-text-fill: white; "
                 + "-fx-padding: 10 20; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #8c5d15; -fx-border-width: 2;"));
     }
+
 
     private void styleLabel(Label label) {
         label.setStyle("-fx-font-size: 18px; -fx-font-weight: bold;");

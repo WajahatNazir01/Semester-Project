@@ -21,6 +21,7 @@ import java.util.List;
 
 public class ExistingUserLogin {
     private final Stage stage;
+    //file to save users ddata
     private static final String FILE_PATH = "users.txt";
     private volatile boolean showError = true;
 
@@ -34,27 +35,33 @@ public class ExistingUserLogin {
         Image backgroundImage = new Image("orangebg.png");
         ImageView backgroundView = new ImageView(backgroundImage);
         backgroundView.setFitWidth(1550);
-        backgroundView.setFitHeight(720);
+        backgroundView.setFitHeight(670);
+
         Label usernameLabel = new Label("Username:");
         TextField usernameField = new TextField();
         usernameField.setPrefWidth(300);
         styleLabel(usernameLabel);
+
         Label passwordLabel = new Label("Password:");
         PasswordField passwordField = new PasswordField();
         passwordField.setPrefWidth(300);
         styleLabel(passwordLabel);
+
         HBox usernameLayout = new HBox(10, usernameLabel, usernameField);
         usernameLayout.setAlignment(Pos.CENTER);
+
         HBox passwordLayout = new HBox(10, passwordLabel, passwordField);
         passwordLayout.setAlignment(Pos.CENTER);
+
         Button loginButton = new Button("Login");
         Button cancelButton = new Button("Cancel");
         styleButton(loginButton);
         styleButton(cancelButton);
+
         Label statusLabel = new Label();
-        statusLabel.setTextFill(Color.BLACK);
+        statusLabel.setTextFill(Color.RED);
         statusLabel.setVisible(false);
-        //functionalities
+
         loginButton.setOnAction(e -> {
             String username = usernameField.getText();
             String password = passwordField.getText();
@@ -70,6 +77,7 @@ public class ExistingUserLogin {
                 showBlinkingNotification(statusLabel, "**Invalid Username or Password**");
             }
         });
+
         cancelButton.setOnAction(e -> {
             UserLoginOptions userLoginOptions = new UserLoginOptions(stage);
             userLoginOptions.show();
@@ -89,11 +97,9 @@ public class ExistingUserLogin {
         Scene scene = new Scene(root, 1550, 670);
         stage.setScene(scene);
         stage.setFullScreen(true);
-        stage.setFullScreenExitHint("");
-        stage.setFullScreenExitKeyCombination(null);
         stage.setTitle("Existing User Login");
     }
-    //emthod to check if user already exists
+
     private boolean validateCredentials(String username, String password) {
         try {
             List<String> lines = Files.readAllLines(Path.of(FILE_PATH));
@@ -105,7 +111,7 @@ public class ExistingUserLogin {
             return false;
         }
     }
-
+//    he line must have exactly two parts (ensured by parts.length == 2).
     private void showBlinkingNotification(Label statusLabel, String message) {
         showError = true;
         statusLabel.setText(message);

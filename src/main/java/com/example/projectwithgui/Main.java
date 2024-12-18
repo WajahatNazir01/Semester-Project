@@ -22,19 +22,20 @@ public class  Main extends Application {
     //This is my main class that further leads us to respective stages
     @Override
     public void start(Stage primaryStage) {
+        //background image set
         Image icon = new Image("Icon.png");  // Path to the icon
         primaryStage.getIcons().add(icon);
-        //background image set
+
         Image backgroundImage = new Image("orangebg.png");
         ImageView backgroundView = new ImageView(backgroundImage);
         backgroundView.setFitWidth(1550);
-        backgroundView.setFitHeight(720);
+        backgroundView.setFitHeight(670);
         backgroundView.setPreserveRatio(false);
         primaryStage.setFullScreen(true);
 
         //welcome label
         Label welcomeLabel = new Label("Welcome to ATDOOR");
-        welcomeLabel.setFont(Font.font("Halvetica", FontWeight.BOLD, 52));
+        welcomeLabel.setFont(Font.font("Halvetica", FontWeight.BOLD, 52));          //can also change FontPostire:to ITALIC etc
         welcomeLabel.setTextFill(Color.web("#d83724"));
         welcomeLabel.setStyle("-fx-effect: dropshadow(gaussian, #ffffff, 5, 0.5, 2, 2);");
         welcomeLabel.setAlignment(Pos.CENTER);
@@ -47,14 +48,12 @@ public class  Main extends Application {
         Button exitbutton = new Button("Exit");
         adminLoginButton.setEffect(new DropShadow());
         userLoginButton.setEffect(new DropShadow());
-
-        //beautifying the buttons
+      //beautifying the buttons
         styleButton(adminLoginButton);
         styleButton(userLoginButton);
         styleexitbutton(exitbutton);
         addButtonAnimation(adminLoginButton);
         addButtonAnimation(userLoginButton);
-
         //defining functionalities
         adminLoginButton.setOnAction(e -> {
             AdminLogin adminLogin = new AdminLogin(primaryStage);
@@ -85,20 +84,9 @@ public class  Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.setFullScreen(true);
         primaryStage.setResizable(true);
-        primaryStage.setFullScreenExitHint("");
-        primaryStage.setFullScreenExitKeyCombination(null);
         primaryStage.show();
     }
-    //styling buttons method
-//    private void styleButton(Button button) {
-//        button.setFont(new Font("Didot", 18));
-//        button.setStyle("-fx-background-color: #263988; -fx-text-fill: white; -fx-padding: 10 20; "
-//                + "-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #031b73;-fx-border-width: 2;");
-//        button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: #263988; -fx-text-fill: white; "
-//                + "-fx-padding: 10 20; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #031b73; -fx-border-width: 2;"));
-//        button.setOnMouseExited(e -> button.setStyle("-fx-background-color: #263988; -fx-text-fill: white; "
-//                + "-fx-padding: 10 20; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #031b73; -fx-border-width: 2;"));
-//    }
+   //Admin User login button styling
 
     private void styleButton(Button button) {
         button.setFont(new javafx.scene.text.Font("Didot", 16));

@@ -2,6 +2,7 @@ package com.example.projectwithgui;
 
 
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
@@ -19,13 +20,13 @@ public class UserLoginOptions {
     public UserLoginOptions(Stage stage) {
         this.stage = stage;
     }
-    //same styling and scene continues here
+    //same styling ans scene continues here
     public void show() {
 
         Image backgroundImage = new Image("orangebg.png");
         ImageView backgroundView = new ImageView(backgroundImage);
         backgroundView.setFitWidth(1550);
-        backgroundView.setFitHeight(720);
+        backgroundView.setFitHeight(670);
         backgroundView.setPreserveRatio(false);
         Button cancel = new Button("Cancel");
         cancel.setOnAction(e ->{
@@ -33,6 +34,9 @@ public class UserLoginOptions {
             main.start(stage);
         });
        styleButton(cancel);
+
+
+        //add the cancel button on top side of menu and then style it too
 
         Button newUserButton = new Button("New User");
         Button existingUserButton = new Button("Existing User");
@@ -49,24 +53,23 @@ public class UserLoginOptions {
         });
 
         VBox buttonLayout = new VBox(30, newUserButton, existingUserButton,cancel);
-        buttonLayout.setAlignment(javafx.geometry.Pos.CENTER);
+        //buttonLayout.setAlignment(javafx.geometry.Pos.CENTER);
+        buttonLayout.setAlignment(Pos.CENTER);
         buttonLayout.setPadding(new Insets(300,0,0,0));
 
         // adding backgorund image to layout with buttons
-        StackPane root = new javafx.scene.layout.StackPane();
+        StackPane root = new StackPane();
         root.getChildren().addAll(backgroundView, buttonLayout);
 
-        //creating main scene
+        // Creating  scene
         Scene scene = new Scene(root, 1550, 670);
         stage.setScene(scene);
         stage.setTitle("User Login Options");
-        stage.setFullScreenExitHint("");
-        stage.setFullScreenExitKeyCombination(null);
         stage.setFullScreen(true);
 
     }
 
-    //style buttons method
+    // Method to style buttons
     private void styleButton(Button button) {
         button.setFont(new javafx.scene.text.Font("Didot", 16));
         button.setStyle("-fx-background-color: #d88f1e; -fx-text-fill: white; -fx-padding: 10 20; "

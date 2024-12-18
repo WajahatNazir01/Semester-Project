@@ -55,10 +55,6 @@ public class ShowAdminMenu {
             CustomersDatabase cdb = new CustomersDatabase();
             cdb.show(stage);
         });
-        viewRevenueButton.setOnAction(e -> {
-           Revenue revenue = new Revenue();
-            revenue.show();
-        });
 
         // Add buttons to the grid
         gridPane.add(categoriesButton, 0, 0);
@@ -76,8 +72,6 @@ public class ShowAdminMenu {
         stage.setScene(scene);
         stage.setTitle("Admin Menu");
         stage.setFullScreen(true);
-        stage.setFullScreenExitHint("");
-        stage.setFullScreenExitKeyCombination(null);
         root.setStyle("-fx-background-color: #ffc784;");
         stage.show();
     }
